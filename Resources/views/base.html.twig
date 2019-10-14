@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}" class="{{ html_classes|default('') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ title_prefix|default('') }}{% block title %}Welcome!{% endblock %}</title>
+    <link rel="manifest" href="{{ asset('build/manifest.json') }}">
+    {% block extra_headers %}
+        {% if app_version|default(false) %}<meta name="generator" content="{{ app_version }}" />{% endif %}
+        {% if app_color|default(false) %}
+            <meta name="msapplication-TileColor" content="#{{ app_color }}">
+            <meta name="theme-color" content="#{{ app_color }}">
+        {% endif %}
+    {% endblock %}
+    {% block stylesheets %}{% endblock %}
+    {% block header_javascripts %}{% endblock %}
+</head>
+<body class="{{ body_classes|default('') }}">
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block modals %}{% endblock %}
+</body>
+</html>
