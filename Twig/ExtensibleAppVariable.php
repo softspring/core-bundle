@@ -23,4 +23,26 @@ class ExtensibleAppVariable extends BaseAppVariable
             $this->extraData[$key] = $params[0];
         }
     }
+
+    public function __get($property)
+    {
+        if (property_exists($this, $property)) {
+            return $this->$property;
+        }
+
+        if (isset($this->extraData[$property])) {
+            return $this->extraData[$property];
+        }
+
+        return null;
+    }
+
+    public function __isset($property)
+    {
+        if (property_exists($this, $property)) {
+            return true;
+        }
+
+        return isset($this->extraData[$property]);
+    }
 }
