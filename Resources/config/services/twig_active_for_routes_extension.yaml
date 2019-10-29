@@ -1,0 +1,5 @@
+services:
+    Softspring\CoreBundle\Twig\ActiveForRoutesExtension:
+        arguments:
+            $requestStack: '@request_stack'
+        tags: ['twig.extension']
