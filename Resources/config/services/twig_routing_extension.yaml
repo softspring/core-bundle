@@ -1,0 +1,5 @@
+services:
+    Softspring\CoreBundle\Twig\Extension\RoutingExtension:
+        arguments:
+            $urlGenerator: '@router'
+        tags: ['twig.extension']

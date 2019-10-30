@@ -1,6 +1,6 @@
 <?php
 
-namespace Softspring\CoreBundle\Twig;
+namespace Softspring\CoreBundle\Twig\Extension;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
