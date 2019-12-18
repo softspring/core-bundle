@@ -6,6 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/softspring/core-bundle/v/unstable.svg)](https://packagist.org/packages/softspring/core-bundle)
 [![License](https://poser.pugx.org/softspring/core-bundle/license.svg)](https://packagist.org/packages/softspring/core-bundle)
 [![Total Downloads](https://poser.pugx.org/softspring/core-bundle/downloads)](https://packagist.org/packages/softspring/core-bundle)
+[![Build status](https://travis-ci.com/softspring/core-bundle.svg?branch=master)](https://travis-ci.com/softspring/core-bundle)
 
 # Installation
 
