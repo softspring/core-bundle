@@ -29,6 +29,10 @@
             "Softspring\\CoreBundle\\Tests\\": "/Tests/"
         }
     },
+    "conflict": {
+        "symfony/dependency-injection": ">= 4.0.0, < 4.1.12",
+        "symfony/framework-bundle": ">= 4.0.0, < 4.1.12"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
