@@ -2,15 +2,15 @@
 
 namespace Softspring\CoreBundle\Controller\Traits;
 
-use Softspring\CoreBundle\Event\GetResponseEventInterface;
+use Symfony\Contracts\EventDispatcher\Event;
 
 trait DispatchTrait
 {
     /**
-     * @param string                    $eventName
-     * @param GetResponseEventInterface $event
+     * @param string $eventName
+     * @param Event  $event
      */
-    protected function dispatch(string $eventName, GetResponseEventInterface $event): void
+    protected function dispatch(string $eventName, Event $event): void
     {
         $this->get('event_dispatcher')->dispatch($event, $eventName);
     }
