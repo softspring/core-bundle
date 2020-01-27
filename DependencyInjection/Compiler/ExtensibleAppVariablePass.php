@@ -2,7 +2,6 @@
 
 namespace Softspring\CoreBundle\DependencyInjection\Compiler;
 
-use Softspring\CoreBundle\Templating\ExtensibleGlobalVariables;
 use Softspring\CoreBundle\Twig\ExtensibleAppVariable;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,11 +13,6 @@ class ExtensibleAppVariablePass implements CompilerPassInterface
         if ($container->hasDefinition('twig.app_variable')) {
             $definition = $container->getDefinition('twig.app_variable');
             $definition->setClass(ExtensibleAppVariable::class);
-        }
-
-        if ($container->hasDefinition('templating.globals')) {
-            $definition = $container->getDefinition('templating.globals');
-            $definition->setClass(ExtensibleGlobalVariables::class);
         }
     }
 }
