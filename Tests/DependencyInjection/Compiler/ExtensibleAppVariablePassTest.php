@@ -4,7 +4,6 @@ namespace Softspring\CoreBundle\Tests\DependencyInjection\Compiler;
 
 use PHPUnit\Framework\TestCase;
 use Softspring\CoreBundle\DependencyInjection\Compiler\ExtensibleAppVariablePass;
-use Softspring\CoreBundle\Templating\ExtensibleGlobalVariables;
 use Softspring\CoreBundle\Twig\ExtensibleAppVariable;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -21,6 +20,5 @@ class ExtensibleAppVariablePassTest extends TestCase
 
         $compiler->process($container);
         $this->assertEquals(ExtensibleAppVariable::class, $twigAppVariableDefinition->getClass());
-        $this->assertEquals(ExtensibleGlobalVariables::class, $templatingGlobalsDefinition->getClass());
     }
 }
