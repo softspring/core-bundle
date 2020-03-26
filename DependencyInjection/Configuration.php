@@ -15,6 +15,9 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
+                ->arrayNode('locales')
+                    ->scalarPrototype()->end()
+                ->end()
                 ->arrayNode('twig')
                     ->addDefaultsIfNotSet()
                     ->children()

@@ -18,6 +18,8 @@ class SfsCoreExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
 
+        $container->setParameter('sfs_core.locales', $config['locales']);
+
         if ($config['twig']['active_for_routes_extension']['enabled']) {
             $loader->load('twig_active_for_routes_extension.yaml');
         }
