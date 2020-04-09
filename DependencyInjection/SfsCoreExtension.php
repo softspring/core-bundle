@@ -24,6 +24,10 @@ class SfsCoreExtension extends Extension
             $loader->load('twig_active_for_routes_extension.yaml');
         }
 
+        if ($config['twig']['date_span_extension']['enabled']) {
+            $loader->load('date_span_extension.yaml');
+        }
+
         if ($config['twig']['routing_extension']['enabled']) {
             $loader->load('twig_routing_extension.yaml');
         }

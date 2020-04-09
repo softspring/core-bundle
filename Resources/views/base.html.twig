@@ -21,7 +21,9 @@
             }
         </style>
     {% endblock %}
-    {% block header_javascripts %}{% endblock %}
+    {% block header_javascripts %}
+        <script type="text/javascript">document.cookie = "utz="+(new Date()).toString().split(' ')[5]+';path=/;secure=true'</script>
+    {% endblock %}
 </head>
 <body class="{{ body_classes|default('') }}">
 {% block body %}{% endblock %}
