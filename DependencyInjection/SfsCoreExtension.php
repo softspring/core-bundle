@@ -2,6 +2,7 @@
 
 namespace Softspring\CoreBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -26,6 +27,14 @@ class SfsCoreExtension extends Extension
 
         if ($config['twig']['date_span_extension']['enabled']) {
             $loader->load('date_span_extension.yaml');
+        }
+
+        if ($config['twig']['encore_entry_sources_extension']['enabled']) {
+            if (!interface_exists('Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface')) {
+                throw new InvalidConfigurationException('encore_entry_sources_extension requires symfony/webpack-encore-bundle');
+            }
+            $container->setParameter('sfs_core.encore_entry_sources.public_path', $config['twig']['encore_entry_sources_extension']['public_path']);
+            $loader->load('encore_entry_sources_extension.yaml');
         }
 
         if ($config['twig']['routing_extension']['enabled']) {
