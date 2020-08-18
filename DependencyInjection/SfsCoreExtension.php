@@ -29,6 +29,10 @@ class SfsCoreExtension extends Extension
             $loader->load('date_span_extension.yaml');
         }
 
+        if ($config['twig']['instanceof_extension']['enabled']) {
+            $loader->load('instanceof_extension.yaml');
+        }
+
         if ($config['twig']['encore_entry_sources_extension']['enabled']) {
             if (!interface_exists('Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface')) {
                 throw new InvalidConfigurationException('encore_entry_sources_extension requires symfony/webpack-encore-bundle');
