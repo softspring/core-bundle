@@ -2,8 +2,8 @@
 
 namespace Softspring\CoreBundle\Controller\Traits;
 
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectRepository;
 
 trait DoctrineShortcutsTrait
 {

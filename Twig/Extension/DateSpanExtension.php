@@ -41,7 +41,7 @@ class DateSpanExtension extends AbstractExtension
         $utcTime = twig_date_format_filter($env, $dateTime, $format, 'UTC');
         $userTime = twig_date_format_filter($env, $dateTime, $format, $userTimezone);
 
-        if ($userTime == 'UTC') {
+        if ($userTimezone === 'UTC') {
             return $utcTime;
         } else {
             return "<span title=\"$userTime $userTimezone\n$utcTime UTC\">$userTime</span>";
