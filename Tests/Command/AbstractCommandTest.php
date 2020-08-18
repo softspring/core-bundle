@@ -50,7 +50,7 @@ class AbstractCommandTest extends TestCase
 
         // prepare test
         $command = new TestCommand();
-        $doctrine = $this->getMockBuilder('Doctrine\Persistence\ManagerRegistry')->getMock();
+        $doctrine = $this->getMockBuilder('Symfony\Bridge\Doctrine\ManagerRegistry')->disableOriginalConstructor()->getMock();
         $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerInterface')->getMock();
         $container->expects($this->once())->method('has')->with($this->equalTo('doctrine'))->will($this->returnValue(true));
         $container->expects($this->once())->method('get')->with($this->equalTo('doctrine'))->will($this->returnValue($doctrine));

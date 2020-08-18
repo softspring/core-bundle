@@ -2,7 +2,7 @@
 
 namespace Softspring\CoreBundle\Controller\Traits;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 /**
  * Trait GetDoctrineTrait
