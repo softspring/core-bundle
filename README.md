@@ -105,7 +105,7 @@ use Softspring\CoreBundle\Twig\ExtensibleAppVariable;
 use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class StoreRequestListener implements EventSubscriberInterface
@@ -136,7 +136,7 @@ class StoreRequestListener implements EventSubscriberInterface
         ];
     }
     
-    public function onRequestGetStore(GetResponseEvent $event)
+    public function onRequestGetStore(RequestEvent $event)
     {
         $this->twigAppVariable->setStore('uk');
     }
