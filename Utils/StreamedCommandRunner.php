@@ -62,6 +62,7 @@ class StreamedCommandRunner
 
         $kernel = new Kernel($env, $debug);
         $application = new Application($kernel);
+        $application->setAutoExit(false);
         $application->run($input, $output);
     }
 }
