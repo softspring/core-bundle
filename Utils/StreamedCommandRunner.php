@@ -11,19 +11,38 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class StreamedCommandRunner
 {
-    /**
-     * @param array $command
-     */
-    public static function runCommand(array $command)
+    public static function createRunCommandStreamedResponse(array $command): StreamedResponse
     {
-        $response = new StreamedResponse(function() use ($command) {
+        return new StreamedResponse(function() use ($command) {
             self::_doRunCommand(new ArrayInput($command));
         }, 200, [
             'Content-Type' => 'text/plain',
             'X-Accel-Buffering' => 'no',
         ]);
+    }
 
-        $response->send();
+    /**
+     * @param array $command
+     */
+    public static function runCommand(array $command)
+    {
+        self::createRunCommandStreamedResponse($command)->send();
+    }
+
+    /**
+     * @param array[] $commands
+     * @return StreamedResponse
+     */
+    public static function createRunCommandsStreamedResponse(array $commands): StreamedResponse
+    {
+        return new StreamedResponse(function() use ($commands) {
+            foreach ($commands as $command) {
+                self::_doRunCommand(new ArrayInput($command));
+            }
+        }, 200, [
+            'Content-Type' => 'text/plain',
+            'X-Accel-Buffering' => 'no',
+        ]);;
     }
 
     /**
@@ -31,16 +50,7 @@ class StreamedCommandRunner
      */
     public static function runCommands(array $commands)
     {
-        $response = new StreamedResponse(function() use ($commands) {
-            foreach ($commands as $command) {
-                self::_doRunCommand(new ArrayInput($command));
-            }
-        }, 200, [
-            'Content-Type' => 'text/plain',
-            'X-Accel-Buffering' => 'no',
-        ]);
-
-        $response->send();
+        self::createRunCommandsStreamedResponse($commands)->send();
     }
 
     private static function _doRunCommand(InputInterface $input)
