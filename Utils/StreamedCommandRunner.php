@@ -3,37 +3,41 @@
 namespace Softspring\CoreBundle\Utils;
 
 use App\Kernel;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Debug\Debug;
+use Symfony\Component\ErrorReporting\Debug;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class StreamedCommandRunner
 {
-    public static function createRunCommandStreamedResponse(array $command): StreamedResponse
+    public static function createRunCommandStreamedResponse(array $command, array $options = []): StreamedResponse
     {
-        return new StreamedResponse(function() use ($command) {
-            self::_doRunCommand(new ArrayInput($command));
+        return new StreamedResponse(function() use ($command, $options) {
+            try {
+                self::_doRunCommand(new ArrayInput($command), $options);
+            } catch (\Exception $e) {
+                throw $e;
+            }
         }, 200, [
             'Content-Type' => 'text/plain',
             'X-Accel-Buffering' => 'no',
         ]);
     }
 
-    /**
-     * @param array $command
-     */
-    public static function runCommand(array $command)
+    public static function runCommand(array $command, array $options = []): void
     {
-        self::createRunCommandStreamedResponse($command)->send();
+        self::createRunCommandStreamedResponse($command, $options)->send();
     }
 
     /**
      * @param array[] $commands
+     * @param array   $options
+     *
      * @return StreamedResponse
      */
-    public static function createRunCommandsStreamedResponse(array $commands): StreamedResponse
+    public static function createRunCommandsStreamedResponse(array $commands, array $options = []): StreamedResponse
     {
         return new StreamedResponse(function() use ($commands) {
             foreach ($commands as $command) {
@@ -47,13 +51,14 @@ class StreamedCommandRunner
 
     /**
      * @param array[] $commands
+     * @param array   $options
      */
-    public static function runCommands(array $commands)
+    public static function runCommands(array $commands, array $options = [])
     {
-        self::createRunCommandsStreamedResponse($commands)->send();
+        self::createRunCommandsStreamedResponse($commands, $options)->send();
     }
 
-    private static function _doRunCommand(InputInterface $input)
+    private static function _doRunCommand(InputInterface $input, array $options = [])
     {
         $input->setInteractive(false);
 
@@ -68,7 +73,13 @@ class StreamedCommandRunner
             }
         }
 
-        $output = new StreamedCommandOutput(fopen('php://stdout', 'w'));
+        if ($options['outputLogger']??false) {
+            /** @var LoggerInterface $outputLogger */
+            $outputLogger = $options['outputLogger'];
+            $output = new LoggerCommandOutput($outputLogger);
+        } else {
+            $output = new StreamedCommandOutput(fopen('php://stdout', 'w'));
+        }
 
         $kernel = new Kernel($env, $debug);
         $application = new Application($kernel);
