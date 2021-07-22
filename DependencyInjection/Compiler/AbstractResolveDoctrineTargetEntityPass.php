@@ -25,7 +25,9 @@ abstract class AbstractResolveDoctrineTargetEntityPass implements CompilerPassIn
     protected function setTargetEntityFromParameter(string $parameterName, string $interface, ContainerBuilder $container, bool $required = true)
     {
         if ($container->hasParameter($parameterName) && $class = $container->getParameter($parameterName)) {
-            if (!class_implements($class, $interface)) {
+            $refClass = new \ReflectionClass($class);
+
+            if (!$refClass->implementsInterface($interface)) {
                 throw new LogicException(sprintf('%s class must implements %s interface', $class, $interface));
             }
 
