@@ -1,7 +1,9 @@
 {
     "name": "softspring/core-bundle",
     "description": "This bundle provides common symfony features.",
+    "type": "symfony-bundle",
     "license": "MIT",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.4"
     },
