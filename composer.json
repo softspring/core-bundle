@@ -4,6 +4,7 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=7.4"
     },
@@ -22,15 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Softspring\\CoreBundle\\": ""
-        },
-        "exclude-from-classmap": [
-            "/Tests/"
-        ]
+            "Softspring\\CoreBundle\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Softspring\\CoreBundle\\Tests\\": "/Tests/"
+            "Softspring\\CoreBundle\\Tests\\": "tests/"
         }
     },
     "conflict": {

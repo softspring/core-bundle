@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{{ title_prefix|default('') }}{% block title %}Welcome!{% endblock %}</title>
+    {% block seo %}
+        <title>{{ title_prefix|default('') }}{% block title %}Welcome!{% endblock %}</title>
+    {% endblock seo %}
     <link rel="manifest" href="{{ asset('build/manifest.json') }}">
     {% block extra_headers %}
         {% if app_version|default(false) %}<meta name="generator" content="{{ app_version }}" />{% endif %}

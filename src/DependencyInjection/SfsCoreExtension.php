@@ -17,7 +17,7 @@ class SfsCoreExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
 
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config/services'));
 
         $container->setParameter('sfs_core.locales', $config['locales']);
 
