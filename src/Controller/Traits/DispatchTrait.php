@@ -12,6 +12,11 @@ trait DispatchTrait
      */
     protected function dispatch(string $eventName, Event $event): void
     {
-        $this->get('event_dispatcher')->dispatch($event, $eventName);
+        if (empty($this->eventDispatcher)) {
+            @trigger_error('This method will require eventDispatcher property', E_USER_DEPRECATED);
+            $this->get('event_dispatcher')->dispatch($event, $eventName);
+        } else {
+            $this->eventDispatcher->dispatch($event, $eventName);
+        }
     }
 }

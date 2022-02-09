@@ -8,6 +8,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 trait DispatchGetResponseTrait
 {
+    use DispatchTrait;
+
     /**
      * @param string                          $eventName
      * @param GetResponseEventInterface|Event $event
@@ -16,7 +18,7 @@ trait DispatchGetResponseTrait
      */
     protected function dispatchGetResponse(string $eventName, GetResponseEventInterface $event): ?Response
     {
-        $this->get('event_dispatcher')->dispatch($event, $eventName);
+        $this->dispatch($eventName, $event);
 
         if ($event->getResponse()) {
             return $event->getResponse();
