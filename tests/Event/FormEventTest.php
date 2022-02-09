@@ -4,7 +4,6 @@ namespace Softspring\CoreBundle\Tests\Event;
 
 use PHPUnit\Framework\TestCase;
 use Softspring\CoreBundle\Event\FormEvent;
-use Softspring\CoreBundle\Event\GetResponseEventInterface;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\EventDispatcher\Event;

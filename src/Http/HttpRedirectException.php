@@ -14,7 +14,6 @@ class HttpRedirectException extends HttpException
 
     /**
      * HttpRedirectException constructor.
-     * @param RedirectResponse $response
      */
     public function __construct(RedirectResponse $response)
     {
@@ -22,9 +21,6 @@ class HttpRedirectException extends HttpException
         $this->response = $response;
     }
 
-    /**
-     * @return RedirectResponse
-     */
     public function getResponse(): RedirectResponse
     {
         return $this->response;

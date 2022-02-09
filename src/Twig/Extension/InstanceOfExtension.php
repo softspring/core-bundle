@@ -13,10 +13,7 @@ class InstanceOfExtension extends AbstractExtension
     }
 
     /**
-     * @param mixed  $var
-     * @param string $class
-     *
-     * @return bool
+     * @param mixed $var
      */
     public function instanceOf($var, string $class): bool
     {

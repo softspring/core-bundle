@@ -17,7 +17,7 @@ abstract class AbstractController extends SfAbstractController
     use DoctrineShortcutsTrait;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public static function getSubscribedServices()
     {

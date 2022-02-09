@@ -41,7 +41,6 @@ class GetResponseFormEventTest extends TestCase
         $this->assertEquals($request, $event->getRequest());
     }
 
-
     public function testGetResponse()
     {
         $formFactory = Forms::createFormFactory();

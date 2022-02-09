@@ -4,8 +4,6 @@ namespace Softspring\CoreBundle\Tests\Twig\Extension;
 
 use PHPUnit\Framework\TestCase;
 use Softspring\CoreBundle\Twig\Extension\RoutingExtension;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Exception\InvalidParameterException;
 use Symfony\Component\Routing\Exception\MissingMandatoryParametersException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

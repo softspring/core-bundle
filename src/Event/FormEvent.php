@@ -20,9 +20,6 @@ class FormEvent extends Event
 
     /**
      * FormEvent constructor.
-     *
-     * @param FormInterface $form
-     * @param Request|null  $request
      */
     public function __construct(FormInterface $form, ?Request $request = null)
     {
@@ -30,9 +27,6 @@ class FormEvent extends Event
         $this->request = $request;
     }
 
-    /**
-     * @return FormInterface
-     */
     public function getForm(): FormInterface
     {
         return $this->form;

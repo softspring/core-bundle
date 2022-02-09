@@ -28,7 +28,6 @@ class GetResponseRequestEventTest extends TestCase
         $this->assertEquals($request, $event->getRequest());
     }
 
-
     public function testGetResponse()
     {
         $request = new Request();

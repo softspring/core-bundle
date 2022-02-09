@@ -6,10 +6,6 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 trait DispatchTrait
 {
-    /**
-     * @param string $eventName
-     * @param Event  $event
-     */
     protected function dispatch(string $eventName, Event $event): void
     {
         if (empty($this->eventDispatcher)) {

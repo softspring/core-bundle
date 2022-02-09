@@ -19,7 +19,8 @@
         "symfony/twig-bridge": "^4.4 || ^5.3 || ^6.0",
         "symfony/yaml": "^4.4 || ^5.3 || ^6.0",
         "twig/twig": "^2.0",
-        "symfony/webpack-encore-bundle": "^1.7"
+        "symfony/webpack-encore-bundle": "^1.7",
+        "friendsofphp/php-cs-fixer": "9999999-dev"
     },
     "autoload": {
         "psr-4": {

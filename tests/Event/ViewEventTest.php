@@ -23,7 +23,7 @@ class ViewEventTest extends TestCase
 
     public function testGetData()
     {
-        $event = new ViewEvent(new \ArrayObject(['test'=>1, 'other'=>'yes']));
-        $this->assertEquals(['test'=>1, 'other'=>'yes'], (array) $event->getData());
+        $event = new ViewEvent(new \ArrayObject(['test' => 1, 'other' => 'yes']));
+        $this->assertEquals(['test' => 1, 'other' => 'yes'], (array) $event->getData());
     }
 }

@@ -20,9 +20,6 @@ class EncoreEntrySourcesExtension extends AbstractExtension
 
     /**
      * EncoreEntryCssExtension constructor.
-     *
-     * @param EntrypointLookupInterface $entrypointLookup
-     * @param string                    $publicPath
      */
     public function __construct(EntrypointLookupInterface $entrypointLookup, string $publicPath)
     {
@@ -41,14 +38,14 @@ class EncoreEntrySourcesExtension extends AbstractExtension
     public function getCssSource(string $entryName): string
     {
         return array_reduce($this->entrypointLookup->getCssFiles($entryName), function ($accumulatedSource, $file) {
-            return $accumulatedSource . file_get_contents("{$this->publicPath}$file");
+            return $accumulatedSource.file_get_contents("{$this->publicPath}$file");
         }, '');
     }
 
     public function getJsSource(string $entryName): string
     {
         return array_reduce($this->entrypointLookup->getJavaScriptFiles($entryName), function ($accumulatedSource, $file) {
-            return $accumulatedSource . file_get_contents("{$this->publicPath}$file");
+            return $accumulatedSource.file_get_contents("{$this->publicPath}$file");
         }, '');
     }
 }

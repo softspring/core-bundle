@@ -5,7 +5,7 @@ namespace Softspring\CoreBundle\Controller\Traits;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 /**
- * Trait GetDoctrineTrait
+ * Trait GetDoctrineTrait.
  */
 trait GetDoctrineTrait
 {

@@ -22,7 +22,7 @@ abstract class AbstractCommand extends Command implements ContainerAwareInterfac
     protected $container;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function setContainer(ContainerInterface $container = null)
     {

@@ -13,16 +13,12 @@ class ViewEvent extends Event
 
     /**
      * ViewEvent constructor.
-     * @param \ArrayObject $data
      */
     public function __construct(\ArrayObject $data)
     {
         $this->data = $data;
     }
 
-    /**
-     * @return \ArrayObject
-     */
     public function getData(): \ArrayObject
     {
         return $this->data;

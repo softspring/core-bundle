@@ -4,7 +4,6 @@ namespace Softspring\CoreBundle\Tests\Twig\Extension;
 
 use PHPUnit\Framework\TestCase;
 use Softspring\CoreBundle\Twig\Extension\DateSpanExtension;
-use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment;
@@ -28,7 +27,6 @@ class DateSpanExtensionTest extends TestCase
         $this->assertTrue($filters[0]->needsEnvironment());
     }
 
-
     public function dateSpanProvider()
     {
         return [
@@ -36,19 +34,19 @@ class DateSpanExtensionTest extends TestCase
                 new \DateTime('2000-01-01 11:30:59'),
                 'H:i:s d-m-Y',
                 'Europe/Madrid',
-                '<span title="12:30:59 01-01-2000 Europe/Madrid // 11:30:59 01-01-2000 UTC">12:30:59 01-01-2000</span>'
+                '<span title="12:30:59 01-01-2000 Europe/Madrid // 11:30:59 01-01-2000 UTC">12:30:59 01-01-2000</span>',
             ],
             [
                 new \DateTime('2000-01-01 11:30:59'),
                 'H:i:s d-m-Y',
                 'GMT+4',
-                '<span title="15:30:59 01-01-2000 GMT+4 // 11:30:59 01-01-2000 UTC">15:30:59 01-01-2000</span>'
+                '<span title="15:30:59 01-01-2000 GMT+4 // 11:30:59 01-01-2000 UTC">15:30:59 01-01-2000</span>',
             ],
             [
                 new \DateTime('2000-01-01 11:30:59'),
                 'H:i:s d-m-Y',
                 'UTC',
-                '11:30:59 01-01-2000'
+                '11:30:59 01-01-2000',
             ],
         ];
     }

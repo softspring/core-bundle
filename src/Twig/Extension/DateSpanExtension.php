@@ -16,8 +16,6 @@ class DateSpanExtension extends AbstractExtension
 
     /**
      * DateSpanExtension constructor.
-     *
-     * @param RequestStack $requestStack
      */
     public function __construct(RequestStack $requestStack)
     {
@@ -41,7 +39,7 @@ class DateSpanExtension extends AbstractExtension
         $utcTime = twig_date_format_filter($env, $dateTime, $format, 'UTC');
         $userTime = twig_date_format_filter($env, $dateTime, $format, $userTimezone);
 
-        if ($userTimezone === 'UTC') {
+        if ('UTC' === $userTimezone) {
             return $utcTime;
         } else {
             return "<span title=\"$userTime $userTimezone\n$utcTime UTC\">$userTime</span>";

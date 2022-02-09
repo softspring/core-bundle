@@ -7,7 +7,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Class ActiveForRoutesExtension
+ * Class ActiveForRoutesExtension.
  */
 class ActiveForRoutesExtension extends AbstractExtension
 {
@@ -18,8 +18,6 @@ class ActiveForRoutesExtension extends AbstractExtension
 
     /**
      * ClassToolsExtension constructor.
-     *
-     * @param RequestStack $requestStack
      */
     public function __construct(RequestStack $requestStack)
     {
@@ -38,12 +36,7 @@ class ActiveForRoutesExtension extends AbstractExtension
 
     /**
      * Replaces twig compare function for adding "active" class:
-     *      app.request.attributes.get('_route') starts with 'admin_dashboard' ? 'active': ''
-     *
-     * @param string    $routesStartsWith
-     * @param bool|null $andCondition
-     * @param string    $class
-     * @return string
+     *      app.request.attributes.get('_route') starts with 'admin_dashboard' ? 'active': ''.
      */
     public function activeForRoutes(string $routesStartsWith, bool $andCondition = null, string $class = 'active'): string
     {
@@ -56,7 +49,7 @@ class ActiveForRoutesExtension extends AbstractExtension
         $route = $request->attributes->get('_route');
 
         if (preg_match("/^$routesStartsWith/i", $route) || preg_match("/^admin_$routesStartsWith/i", $route)) {
-            return $andCondition === null || $andCondition === true ? $class : '';
+            return null === $andCondition || true === $andCondition ? $class : '';
         }
 
         return '';

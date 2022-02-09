@@ -18,8 +18,6 @@ class RoutingExtension extends AbstractExtension
 
     /**
      * RoutingExtension constructor.
-     *
-     * @param UrlGeneratorInterface $urlGenerator
      */
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
@@ -27,7 +25,7 @@ class RoutingExtension extends AbstractExtension
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getFunctions()
     {
@@ -36,15 +34,11 @@ class RoutingExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $routeName
-     *
-     * @return bool
-     */
     public function isRouteDefined(string $routeName): bool
     {
         try {
             $this->urlGenerator->generate($routeName);
+
             return true;
         } catch (MissingMandatoryParametersException $e) {
             return true;

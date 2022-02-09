@@ -2,7 +2,6 @@
 
 namespace Softspring\CoreBundle\Tests\Controller\Traits;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Softspring\CoreBundle\Controller\Traits\DoctrineShortcutsTrait;
 
@@ -17,8 +16,6 @@ class DoctrineShotcutsTraitClass
 
     /**
      * DoctrineShotcutsTraitClass constructor.
-     *
-     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {

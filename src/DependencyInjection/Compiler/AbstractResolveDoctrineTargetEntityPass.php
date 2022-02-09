@@ -9,19 +9,8 @@ use Symfony\Component\DependencyInjection\Exception\LogicException;
 
 abstract class AbstractResolveDoctrineTargetEntityPass implements CompilerPassInterface
 {
-    /**
-     * @param ContainerBuilder $container
-     *
-     * @return string
-     */
     abstract protected function getEntityManagerName(ContainerBuilder $container): string;
 
-    /**
-     * @param string           $parameterName
-     * @param string           $interface
-     * @param ContainerBuilder $container
-     * @param bool             $required
-     */
     protected function setTargetEntityFromParameter(string $parameterName, string $interface, ContainerBuilder $container, bool $required = true)
     {
         if ($container->hasParameter($parameterName) && $class = $container->getParameter($parameterName)) {
@@ -39,11 +28,6 @@ abstract class AbstractResolveDoctrineTargetEntityPass implements CompilerPassIn
         }
     }
 
-    /**
-     * @param ContainerBuilder $container
-     * @param string           $interface
-     * @param string           $class
-     */
     private function setTargetEntity(ContainerBuilder $container, string $interface, string $class)
     {
         $resolveTargetEntityListener = $container->findDefinition('doctrine.orm.listeners.resolve_target_entity');
