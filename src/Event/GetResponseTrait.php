@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 trait GetResponseTrait
 {
-    protected ?Response $response;
+    protected ?Response $response = null;
 
     public function getResponse(): ?Response
     {
