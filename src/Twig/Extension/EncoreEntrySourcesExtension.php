@@ -8,15 +8,9 @@ use Twig\TwigFunction;
 
 class EncoreEntrySourcesExtension extends AbstractExtension
 {
-    /**
-     * @var EntrypointLookupInterface
-     */
-    protected $entrypointLookup;
+    protected EntrypointLookupInterface $entrypointLookup;
 
-    /**
-     * @var string
-     */
-    protected $publicPath;
+    protected string $publicPath;
 
     /**
      * EncoreEntryCssExtension constructor.

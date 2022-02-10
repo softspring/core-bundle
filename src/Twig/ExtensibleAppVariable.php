@@ -6,7 +6,7 @@ use Symfony\Bridge\Twig\AppVariable as BaseAppVariable;
 
 class ExtensibleAppVariable extends BaseAppVariable
 {
-    protected $extraData = [];
+    protected array $extraData = [];
 
     public function __call($method, $params)
     {

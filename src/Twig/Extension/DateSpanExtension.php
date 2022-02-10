@@ -9,10 +9,7 @@ use Twig\TwigFilter;
 
 class DateSpanExtension extends AbstractExtension
 {
-    /**
-     * @var RequestStack
-     */
-    protected $requestStack;
+    protected RequestStack $requestStack;
 
     /**
      * DateSpanExtension constructor.

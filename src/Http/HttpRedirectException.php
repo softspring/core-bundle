@@ -7,10 +7,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class HttpRedirectException extends HttpException
 {
-    /**
-     * @var RedirectResponse
-     */
-    protected $response;
+    protected RedirectResponse $response;
 
     /**
      * HttpRedirectException constructor.

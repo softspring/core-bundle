@@ -11,10 +11,7 @@ use Twig\TwigFunction;
  */
 class ActiveForRoutesExtension extends AbstractExtension
 {
-    /**
-     * @var RequestStack
-     */
-    protected $requestStack;
+    protected RequestStack $requestStack;
 
     /**
      * ClassToolsExtension constructor.

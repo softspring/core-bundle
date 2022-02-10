@@ -10,10 +10,7 @@ use Symfony\Contracts\EventDispatcher\Event;
  */
 class RequestEvent extends Event
 {
-    /**
-     * @var Request|null
-     */
-    protected $request;
+    protected ?Request $request;
 
     /**
      * RequestEvent constructor.

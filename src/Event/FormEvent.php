@@ -8,15 +8,9 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class FormEvent extends Event
 {
-    /**
-     * @var Request|null
-     */
-    protected $request;
+    protected ?Request $request;
 
-    /**
-     * @var FormInterface
-     */
-    protected $form;
+    protected FormInterface $form;
 
     /**
      * FormEvent constructor.

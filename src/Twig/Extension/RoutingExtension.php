@@ -11,10 +11,7 @@ use Twig\TwigFunction;
 
 class RoutingExtension extends AbstractExtension
 {
-    /**
-     * @var UrlGeneratorInterface
-     */
-    protected $urlGenerator;
+    protected UrlGeneratorInterface $urlGenerator;
 
     /**
      * RoutingExtension constructor.

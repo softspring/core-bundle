@@ -6,10 +6,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class ViewEvent extends Event
 {
-    /**
-     * @var \ArrayObject
-     */
-    protected $data;
+    protected \ArrayObject $data;
 
     /**
      * ViewEvent constructor.
