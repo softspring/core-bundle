@@ -1,3 +1,0 @@
-services:
-    Softspring\CoreBundle\Twig\Extension\InstanceOfExtension:
-        tags: ['twig.extension']

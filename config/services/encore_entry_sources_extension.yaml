@@ -1,6 +1,0 @@
-services:
-    Softspring\CoreBundle\Twig\Extension\EncoreEntrySourcesExtension:
-        arguments:
-            $entrypointLookup: '@Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface'
-            $publicPath: '%sfs_core.encore_entry_sources.public_path%'
-        tags: ['twig.extension']

@@ -2,7 +2,7 @@
 
 namespace Softspring\CoreBundle;
 
-use Softspring\CoreBundle\DependencyInjection\Compiler\ExtensibleAppVariablePass;
+use Softspring\TwigExtraBundle\DependencyInjection\Compiler\ExtensibleAppVariablePass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

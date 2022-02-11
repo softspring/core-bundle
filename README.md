@@ -90,64 +90,6 @@ $event->getData()['more'] = 'more-data';
 return $this->render('products.html.twig', $viewData->getArrayCopy());
 ```
 
-### Extensible templating variables
-
-This bundle provides and extensible "app" template variable, that allows appending values to it.
-
-The following example appends a "store" variable to the global "app" object to use in twig templates:
-
-```php
-<?php
-
-namespace App\EventListener;
-
-use Softspring\CoreBundle\Twig\ExtensibleAppVariable;
-use Symfony\Bridge\Twig\AppVariable;
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
-
-class StoreRequestListener implements EventSubscriberInterface
-{
-    /**
-     * @var AppVariable
-     */
-    protected $twigAppVariable;
-
-    /**
-     * @param AppVariable $twigAppVariable
-     */
-    public function __construct(AppVariable $twigAppVariable)
-    {
-        if (!$twigAppVariable instanceof ExtensibleAppVariable) {
-            throw new InvalidConfigurationException('You must configure SfsCoreBundle to extend twig app variable');
-        }
-
-        $this->twigAppVariable = $twigAppVariable;
-    }
-
-    public static function getSubscribedEvents()
-    {
-        return [
-            KernelEvents::REQUEST => [
-                ['onRequestGetStore', 30], // router listener has 32
-            ],
-        ];
-    }
-    
-    public function onRequestGetStore(RequestEvent $event)
-    {
-        $this->twigAppVariable->setStore('uk');
-    }
-}
-```
-
-```twig
-{# your twig template #}
-{{ app.store }} {# returns uk #}
-```
-
 ## Aditional features
 
 ### Redirect exception
@@ -171,55 +113,6 @@ throw new HttpRedirectException(new RedirectResponse('/redirect-url'));
 ```
 
 Automatically, a listener catches the exception and sets the response.
-
-### Twig functions
-
-#### active_for_routes_extension
-
-This extension provides a function that returns an active class for matching routes. 
-
-This is useful to create menus, options or tabs with active marks.
-
-**Enable feature**
-
-```yaml
-{# config/packages/sfs_core.yaml #}
-sfs_core:
-    twig:
-        active_for_routes_extension: true        
-```
-
-**Usage**
-
-```twig
-<a href="{{ url('admin_products_list') }}" class="{{ activeForRoutes('admin_products_') }}">Products</a> {# this link will have an "active" class when the current route matches with "admin_products_" #}        
-<a href="{{ url('admin_products_list') }}" class="{{ activeForRoutes('admin_products_', checkSomeVariable == true) }}">Products</a> {# also you can add an extra boolean expression #}        
-<a href="{{ url('admin_products_list') }}" class="{{ activeForRoutes('admin_products_', null, 'my-active-class') }}">Products</a> {# or change the "active" class with your "my-active-class" #}        
-```
-
-#### routing_extension
-
-This extension provides a route_defined function. 
-
-This is useful for bundles with enabling features.
-
-**Enable feature**
-
-```yaml
-{# config/packages/sfs_core.yaml #}
-sfs_core:
-    twig:
-        routing_extension: true        
-```
-
-**Usage**
-
-```twig
-{# a bundle twig template #}
-{% if route_defined('sfs_user_register') %}
-    <a href="{{ url('sfs_user_register') }}" class="btn btn-secondary btn-block">Sign up</a>
-{% endif %}
-```
 
 ## License
 
