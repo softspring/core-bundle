@@ -9,20 +9,16 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class HttpRedirectExceptionListener implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::EXCEPTION => ['onKernelException'],
         ];
     }
 
-    public function onKernelException(ExceptionEvent $event)
+    public function onKernelException(ExceptionEvent $event): void
     {
-        if (method_exists($event, 'getThrowable')) {
-            $e = $event->getThrowable();
-        } else {
-            $e = $event->getException();
-        }
+        $e = $event->getThrowable();
 
         if (!$e instanceof HttpRedirectException) {
             return;
