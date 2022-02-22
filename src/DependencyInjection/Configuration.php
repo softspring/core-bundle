@@ -16,6 +16,7 @@ class Configuration implements ConfigurationInterface
             ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('locales')
+                    ->setDeprecated('softspring/core-bundle', '4.0', 'Use symfony framework.enabled_locales and access to it as %kernel.enabled_locales%')
                     ->scalarPrototype()->end()
                 ->end()
                 ->arrayNode('http')
