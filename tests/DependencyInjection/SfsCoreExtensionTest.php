@@ -21,13 +21,6 @@ class SfsCoreExtensionTest extends TestCase
         $extension = new SfsCoreExtension();
         $extension->load([
             'sfs_core' => [
-                'twig' => [
-                    'active_for_routes_extension' => true,
-                    'routing_extension' => true,
-                    'date_span_extension' => true,
-                    'instanceof_extension' => true,
-                    'encore_entry_sources_extension' => true,
-                ],
             ],
         ], $container = new ContainerBuilder());
 

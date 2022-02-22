@@ -2,7 +2,6 @@
 
 namespace Softspring\CoreBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
