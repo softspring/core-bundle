@@ -9,10 +9,18 @@ class ViewEvent extends Event
     protected \ArrayObject $data;
 
     /**
-     * ViewEvent constructor.
+     * @param \ArrayObject|array $data
      */
-    public function __construct(\ArrayObject $data)
+    public function __construct($data)
     {
+        if (!$data instanceof \ArrayObject && !is_array($data)) {
+            throw new \InvalidArgumentException('$data must be an ArrayObject or just an array');
+        }
+
+        if (is_array($data)) {
+            $data = new \ArrayObject($data);
+        }
+
         $this->data = $data;
     }
 
