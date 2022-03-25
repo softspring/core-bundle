@@ -2,17 +2,19 @@
 
 namespace Softspring\CoreBundle\Event;
 
-use Symfony\Contracts\EventDispatcher\Event;
+use Symfony\Component\HttpFoundation\Request;
 
-class ViewEvent extends Event
+class ViewEvent extends RequestEvent
 {
     protected \ArrayObject $data;
 
     /**
      * @param \ArrayObject|array $data
      */
-    public function __construct($data)
+    public function __construct($data, ?Request $request = null)
     {
+        parent::__construct($request);
+
         if (!$data instanceof \ArrayObject && !is_array($data)) {
             throw new \InvalidArgumentException('$data must be an ArrayObject or just an array');
         }
