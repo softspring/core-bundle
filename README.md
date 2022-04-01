@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/softspring/core-bundle/license.svg)](https://packagist.org/packages/softspring/core-bundle)
 [![PHP Version Require](http://poser.pugx.org/softspring/core-bundle/require/php)](https://packagist.org/packages/softspring/core-bundle)
 [![Total Downloads](https://poser.pugx.org/softspring/core-bundle/downloads)](https://packagist.org/packages/softspring/core-bundle)
-[![Build status](https://travis-ci.com/softspring/core-bundle.svg?branch=master)](https://app.travis-ci.com/github/softspring/core-bundle)
+[![Build status](https://github.com/softspring/core-bundle/actions/workflows/php.yml/badge.svg?branch=5.0)](https://github.com/softspring/core-bundle/actions/workflows/php.yml)
 
 Adds some general facilities and extra features to Symfony projects.
 
