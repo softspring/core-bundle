@@ -2,26 +2,12 @@
 
 namespace Softspring\CoreBundle\Event;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Contracts\EventDispatcher\Event;
+use Softspring\Component\Events\RequestEvent as NewRequestEvent;
 
 /**
- * Class RequestEvent.
+ * @deprecated use softspring/events component
  */
-class RequestEvent extends Event
+class RequestEvent extends NewRequestEvent
 {
-    protected ?Request $request;
 
-    /**
-     * RequestEvent constructor.
-     */
-    public function __construct(?Request $request)
-    {
-        $this->request = $request;
-    }
-
-    public function getRequest(): ?Request
-    {
-        return $this->request;
-    }
 }

@@ -4,6 +4,9 @@ namespace Softspring\CoreBundle\Controller\Traits;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
+/**
+ * @deprecated use softspring/events component
+ */
 trait DispatchTrait
 {
     protected function dispatch(string $eventName, Event $event): void

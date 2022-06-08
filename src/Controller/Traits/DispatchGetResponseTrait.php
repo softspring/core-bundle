@@ -6,6 +6,9 @@ use Softspring\CoreBundle\Event\GetResponseEventInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\Event;
 
+/**
+ * @deprecated use softspring/events component
+ */
 trait DispatchGetResponseTrait
 {
     use DispatchTrait;

@@ -2,11 +2,12 @@
 
 namespace Softspring\CoreBundle\Event;
 
-use Symfony\Component\HttpFoundation\Response;
+use Softspring\Component\Events\GetResponseEventInterface as NewGetResponseEventInterface;
 
-interface GetResponseEventInterface
+/**
+ * @deprecated use softspring/events component
+ */
+interface GetResponseEventInterface extends NewGetResponseEventInterface
 {
-    public function getResponse(): ?Response;
 
-    public function setResponse(?Response $response): void;
 }

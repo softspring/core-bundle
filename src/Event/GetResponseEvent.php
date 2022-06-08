@@ -2,9 +2,12 @@
 
 namespace Softspring\CoreBundle\Event;
 
-use Symfony\Contracts\EventDispatcher\Event;
+use Softspring\Component\Events\GetResponseEvent as NewGetResponseEvent;
 
-class GetResponseEvent extends Event implements GetResponseEventInterface
+/**
+ * @deprecated use softspring/events component
+ */
+class GetResponseEvent extends NewGetResponseEvent implements GetResponseEventInterface
 {
-    use GetResponseTrait;
+
 }

@@ -2,35 +2,12 @@
 
 namespace Softspring\CoreBundle\Event;
 
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Contracts\EventDispatcher\Event;
+use Softspring\Component\Events\FormEvent as NewFormEvent;
 
-class FormEvent extends Event
+/**
+ * @deprecated use softspring/events component
+ */
+class FormEvent extends NewFormEvent
 {
-    protected ?Request $request;
 
-    protected FormInterface $form;
-
-    /**
-     * FormEvent constructor.
-     */
-    public function __construct(FormInterface $form, ?Request $request = null)
-    {
-        $this->form = $form;
-        $this->request = $request;
-    }
-
-    public function getForm(): FormInterface
-    {
-        return $this->form;
-    }
-
-    /**
-     * @return Request|null
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
 }
