@@ -5,6 +5,9 @@ namespace Softspring\CoreBundle\Controller\Traits;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 
+/**
+ * @deprecated
+ */
 trait DoctrineShortcutsTrait
 {
     /**
