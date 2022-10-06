@@ -9,5 +9,4 @@ use Softspring\Component\Events\GetResponseEventInterface as NewGetResponseEvent
  */
 interface GetResponseEventInterface extends NewGetResponseEventInterface
 {
-
 }

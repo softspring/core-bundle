@@ -9,5 +9,4 @@ use Softspring\Component\Events\RequestEvent as NewRequestEvent;
  */
 class RequestEvent extends NewRequestEvent
 {
-
 }

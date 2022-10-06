@@ -9,5 +9,4 @@ use Softspring\Component\Events\FormEvent as NewFormEvent;
  */
 class FormEvent extends NewFormEvent
 {
-
 }

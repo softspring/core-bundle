@@ -9,5 +9,4 @@ use Softspring\Component\Events\ViewEvent as NewViewEvent;
  */
 class ViewEvent extends NewViewEvent
 {
-
 }

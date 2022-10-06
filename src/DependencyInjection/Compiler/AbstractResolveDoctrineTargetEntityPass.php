@@ -9,5 +9,4 @@ use Softspring\Component\DoctrineTargetEntityResolver\DependencyInjection\Compil
  */
 abstract class AbstractResolveDoctrineTargetEntityPass extends ComponentAbstractResolveDoctrineTargetEntityPass
 {
-
 }
