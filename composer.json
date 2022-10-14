@@ -7,8 +7,8 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.4",
-        "softspring/events": "^5.0@dev",
-        "softspring/doctrine-target-entity-resolver": "^5.0@dev"
+        "softspring/events": "^5.0",
+        "softspring/doctrine-target-entity-resolver": "^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
