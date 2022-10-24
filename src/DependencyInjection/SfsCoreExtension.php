@@ -30,7 +30,7 @@ class SfsCoreExtension extends Extension implements PrependExtensionInterface
     {
         $container->prependExtensionConfig('twig', [
             'paths' => [
-                '%kernel.project_dir%/vendor/softspring/components/templates'=> 'SfsComponents',
+                '%kernel.project_dir%/vendor/softspring/components/templates' => 'SfsComponents',
             ],
         ]);
     }
