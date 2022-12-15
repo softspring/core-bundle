@@ -14,13 +14,13 @@
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "doctrine/orm": "^2.5",
-        "symfony/console": "^5.4 || ^6.0",
-        "symfony/dependency-injection": "^5.4 || ^6.0",
-        "symfony/form": "^5.4 || ^6.0",
-        "symfony/framework-bundle": "^5.4 || ^6.0",
-        "symfony/doctrine-bridge": "^5.4 || ^6.0",
-        "symfony/twig-bridge": "^5.4 || ^6.0",
-        "symfony/yaml": "^5.4 || ^6.0",
+        "symfony/console": "^5.4|^6.0",
+        "symfony/dependency-injection": "^5.4|^6.0",
+        "symfony/form": "^5.4|^6.0",
+        "symfony/framework-bundle": "^5.4|^6.0",
+        "symfony/doctrine-bridge": "^5.4|^6.0",
+        "symfony/twig-bridge": "^5.4|^6.0",
+        "symfony/yaml": "^5.4|^6.0",
         "twig/twig": "^2.0",
         "symfony/webpack-encore-bundle": "^1.7",
         "friendsofphp/php-cs-fixer": "9999999-dev"
@@ -34,10 +34,6 @@
         "psr-4": {
             "Softspring\\CoreBundle\\Tests\\": "tests/"
         }
-    },
-    "conflict": {
-        "symfony/dependency-injection": ">= 4.0.0 < 4.1.12",
-        "symfony/framework-bundle": ">= 4.0.0 < 4.1.12"
     },
     "config": {
         "allow-plugins": false
