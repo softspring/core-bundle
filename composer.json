@@ -37,5 +37,10 @@
     },
     "config": {
         "allow-plugins": false
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-5.0": "5.0.x-dev"
+        }
     }
 }
