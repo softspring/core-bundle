@@ -33,6 +33,6 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    Softspring\CoreBundle\SfsCoreBundle::class => ['all' => true],
+    Softspring\CoreBundle\SfsCmsBundle::class => ['all' => true],
 ];
 ```
