@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class SfsCoreExtension extends Extension implements PrependExtensionInterface
+class SfsCoreExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -24,14 +24,5 @@ class SfsCoreExtension extends Extension implements PrependExtensionInterface
         if ($config['http']['catch_http_redirect_exception']['enabled']) {
             $loader->load('catch_http_redirect_exception.yaml');
         }
-    }
-
-    public function prepend(ContainerBuilder $container)
-    {
-        $container->prependExtensionConfig('twig', [
-            'paths' => [
-                '%kernel.project_dir%/vendor/softspring/components/templates' => 'SfsComponents',
-            ],
-        ]);
     }
 }
